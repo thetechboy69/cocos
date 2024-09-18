@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cocosChat Coming Soon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0 20px;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: linear-gradient(120deg, #ffffff, #e0eaff);
+            color: #333;
+            animation: backgroundAnimation 10s infinite alternate;
+        }
+        img {
+            width: 150px;
+            animation: fadeInDown 1s;
+        }
+        h1 {
+            font-size: 48px;
+            margin: 20px 0 10px;
+            animation: fadeInUp 1s;
+        }
+        p {
+            font-size: 18px;
+            margin: 0 0 30px;
+            max-width: 600px;
+            animation: fadeInUp 1s;
+        }
+        .discord-button {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(90deg, #7289da, #5865F2); 
+            color: #fff;
+            padding: 14px 24px;
+            border: none;
+            border-radius: 30px; 
+            text-decoration: none;
+            font-size: 18px;
+            transition: background 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+        }
+        .discord-button:hover {
+            background: linear-gradient(90deg, #5b6eae, #4852c8);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .discord-button i {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes backgroundAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+        @media (prefers-color-scheme: light) {
+            body {
+                background: linear-gradient(120deg, #ffffff, #e0eaff);
+                color: #333;
+                animation: backgroundAnimation 10s infinite alternate;
+            }
+        }
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(120deg, #000000, #1a2a6c);
+                color: #fff;
+                animation: backgroundAnimation 10s infinite alternate;
+            }
+            .discord-button {
+                background: linear-gradient(90deg, #4e5d94, #3c4685); 
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            }
+            .discord-button:hover {
+                background: linear-gradient(90deg, #3c4685, #2b316e);
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="https://thetechboy.net/assets/website/Group_1.png" alt="Logo">
+    <h1>Heya!</h1>
+    <p>Thanks for your interest in cocosChat. We're still under development, so check back soon!</p>
+    <a href="https://discord.gg/ttb" class="discord-button">
+        <i class="fab fa-discord"></i> Join our Discord
+    </a>
+</body>
+</html>
