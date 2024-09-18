@@ -21,7 +21,7 @@
             color: #333;
             animation: backgroundAnimation 10s infinite alternate;
         }
-        img {
+        img.logo {
             width: 150px;
             animation: fadeInDown 1s;
         }
@@ -36,7 +36,7 @@
             max-width: 600px;
             animation: fadeInUp 1s;
         }
-        .discord-button {
+        .discord-button, .credits-button {
             display: inline-flex;
             align-items: center;
             background: linear-gradient(90deg, #7289da, #5865F2); 
@@ -49,14 +49,65 @@
             transition: background 0.3s, box-shadow 0.3s;
             animation: fadeInUp 1s;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            cursor: pointer;
+            margin: 10px 5px;
         }
-        .discord-button:hover {
+        .discord-button:hover, .credits-button:hover {
             background: linear-gradient(90deg, #5b6eae, #4852c8);
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
-        .discord-button i {
+        .discord-button i, .credits-button i {
             margin-right: 10px;
             font-size: 24px;
+        }
+        .credits-section {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.5s ease, max-height 0.5s ease;
+        }
+        .credits-section.show {
+            opacity: 1;
+            max-height: 1000px;
+        }
+        .credits-section h2 {
+            font-size: 32px;
+            margin-top: 30px;
+            animation: fadeInUp 1s;
+        }
+        .credits-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeInUp 1s;
+        }
+        .credit-card {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 400px;
+        }
+        .profile-pic {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+        .credit-info {
+            text-align: left;
+        }
+        .credit-info strong {
+            display: block;
+            font-size: 20px;
+            color: #333;
+        }
+        .credit-info span {
+            font-size: 16px;
+            color: #666;
         }
         @keyframes fadeInDown {
             from {
@@ -92,6 +143,12 @@
                 color: #333;
                 animation: backgroundAnimation 10s infinite alternate;
             }
+            .credit-info strong {
+                color: #333;
+            }
+            .credit-info span {
+                color: #666;
+            }
         }
         @media (prefers-color-scheme: dark) {
             body {
@@ -99,23 +156,64 @@
                 color: #fff;
                 animation: backgroundAnimation 10s infinite alternate;
             }
-            .discord-button {
+            .discord-button, .credits-button {
                 background: linear-gradient(90deg, #4e5d94, #3c4685); 
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
             }
-            .discord-button:hover {
+            .discord-button:hover, .credits-button:hover {
                 background: linear-gradient(90deg, #3c4685, #2b316e);
                 box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+            }
+            .credits-section {
+                color: #fff;
+            }
+            .credit-info strong {
+                color: #fff;
+            }
+            .credit-info span {
+                color: #aaa;
             }
         }
     </style>
 </head>
 <body>
-    <img src="https://thetechboy.net/assets/website/Group_1.png" alt="Logo">
+    <img src="https://thetechboy.net/assets/website/Group_1.png" alt="Logo" class="logo">
     <h1>Heya!</h1>
     <p>Thanks for your interest in cocosChat. We're still under development, so check back soon!</p>
-    <a href="https://discord.gg/ttb" class="discord-button">
-        <i class="fab fa-discord"></i> Join our Discord
-    </a>
+    <div>
+        <a href="https://discord.gg/ttb" class="discord-button">
+            <i class="fab fa-discord"></i> Join our Discord
+        </a>
+        <button class="credits-button">
+            <i class="fas fa-info-circle"></i> Credits
+        </button>
+    </div>
+    <div class="credits-section">
+        <h2>Credits</h2>
+        <div class="credits-list">
+            <div class="credit-card">
+                <img src="https://cocos.chat/files/TTB.png" alt="TTB" class="profile-pic">
+                <div class="credit-info">
+                    <strong>TTB</strong>
+                    <span>Website and application developer</span>
+                </div>
+            </div>
+            <div class="credit-card">
+                <img src="https://cocos.chat/files/maksieku.png" alt="maksieku.tech" class="profile-pic">
+                <div class="credit-info">
+                    <strong>maksieku.tech</strong>
+                    <span>Designed the logo and prototypes of the application</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const creditsButton = document.querySelector('.credits-button');
+        const creditsSection = document.querySelector('.credits-section');
+
+        creditsButton.addEventListener('click', () => {
+            creditsSection.classList.toggle('show');
+        });
+    </script>
 </body>
 </html>
